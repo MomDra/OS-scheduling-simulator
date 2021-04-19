@@ -1,11 +1,14 @@
 class Process:
-    def __init__(self, id, at=0, bt=0):
+    def __init__(self, id, at=0, bt=0, priority=1):
         self.__id = id
         self.__at = at
         self.__bt = bt
         self.__wt = 0
         self.__tt = 0
         self.__ntt = 0
+
+        # 프로세스의 우선순위
+        self.__priority = priority
 
         # 프로세서가 어느 코어에서 일하고있는지
         self.__where = 0
@@ -41,6 +44,9 @@ class Process:
         return self.__ntt
     def set_ntt(self, ntt):
         if ntt >= 0 : self.__ntt = ntt
+
+    def get_priority(self):
+        return self.__priority
     
     def reset(self):
         self.__wt = 0
